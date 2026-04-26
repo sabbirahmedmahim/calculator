@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="calculator">
+        <div class="calculator-header">
+            <button id="theme-toggle" title="Toggle Theme">◑</button>
+        </div>
+        
+        <div class="display">
+            <div class="previous-operand" data-previous-operand></div>
+            <div class="current-operand" data-current-operand>0</div>
+        </div>
+
+        <div class="keypad">
+            <button data-action="clear" class="span-three special-btn">C</button>
+            <button data-operator="/" class="special-btn">÷</button>
+
+            <button data-immediate="sqrt" class="func-btn">√</button>
+            <button data-immediate="square" class="func-btn">x²</button>
+            <button data-operator="^" class="func-btn">xʸ</button>
+            <button data-operator="*" class="special-btn">×</button>
+
+            <button data-number="7">7</button>
+            <button data-number="8">8</button>
+            <button data-number="9">9</button>
+            <button data-operator="-" class="special-btn">−</button>
+
+            <button data-number="4">4</button>
+            <button data-number="5">5</button>
+            <button data-number="6">6</button>
+            <button data-operator="+" class="special-btn">+</button>
+
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+            <button data-action="calculate" class="special-btn span-two-vertical">=</button>
+
+            <button data-immediate="percent" class="func-btn">%</button>
+            <button data-number="0">0</button>
+            <button data-number=".">.</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
