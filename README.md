@@ -2,11 +2,11 @@
 
 A sleek, minimalist, monochrome calculator built entirely with Vanilla JavaScript, HTML5, and raw CSS3. This project focuses on clean Object-Oriented Programming (OOP) principles, state management, and strict separation of concerns without relying on external libraries or the unsafe `eval()` function.
 
-**🔗 [Live Demo: Click Here to View]([Insert your live link here])**
+**🔗 [Live Demo: Click Here to View](https://calculator-sabbir.netlify.app/)**
 
 ---
 
-## 🚀 Features
+## Features
 
 ### Calculator
 * **Core Operations:** Addition, Subtraction, Multiplication, Division.
@@ -26,7 +26,7 @@ A sleek, minimalist, monochrome calculator built entirely with Vanilla JavaScrip
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 * **HTML5:** Semantic markup and structured `data-` attributes.
 * **CSS3:** Raw CSS, Flexbox, CSS Grid, and custom variables for theme toggling.
@@ -34,7 +34,7 @@ A sleek, minimalist, monochrome calculator built entirely with Vanilla JavaScrip
 
 ---
 
-## 🧠 Technical Highlights
+## Technical Highlights
 
 * **No `eval()`:** The calculator engine securely evaluates inputs step-by-step using a custom Switch-Case logic block rather than executing arbitrary strings.
 * **Class-Based Architecture:** The logic is divided into two separate, encapsulated classes (`Calculator` and `Timer`). This ensures they maintain their own internal states without polluting the global namespace or interfering with one another.
@@ -42,10 +42,3 @@ A sleek, minimalist, monochrome calculator built entirely with Vanilla JavaScrip
 
 ---
 
-## 💻 Getting Started (Local Setup)
-
-Since this project is built with Vanilla web technologies, no build tools or package managers (like npm) are required.
-
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/yourusername/bw-calculator.git](https://github.com/yourusername/bw-calculator.git)
