@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Simple B&W Calculator with Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main class="calculator">
         <div class="calculator-header">
+            <div class="timer-section">
+                <span id="timer-display">00:00:00</span>
+                <div class="timer-controls">
+                    <button id="timer-start" class="timer-btn" title="Start">▶</button>
+                    <button id="timer-pause" class="timer-btn" title="Pause">⏸</button>
+                    <button id="timer-reset" class="timer-btn" title="Reset">⏹</button>
+                </div>
+            </div>
+            
             <button id="theme-toggle" title="Toggle Theme">◑</button>
         </div>
         
