@@ -1,3 +1,50 @@
+class Timer {
+    constructor(displayElement) {
+        this.displayElement = displayElement;
+        this.startTime = 0;
+        this.elapsedTime = 0;
+        this.timerInterval = null;
+        this.isRunning = false;
+    }
+
+    start() {
+        if (!this.isRunning) {
+            this.startTime = Date.now() - this.elapsedTime;
+            this.timerInterval = setInterval(() => this.updateTime(), 1000);
+            this.isRunning = true;
+        }
+    }
+
+    pause() {
+        if (this.isRunning) {
+            clearInterval(this.timerInterval);
+            this.isRunning = false;
+        }
+    }
+
+    reset() {
+        clearInterval(this.timerInterval);
+        this.isRunning = false;
+        this.elapsedTime = 0;
+        this.render(0, 0, 0);
+    }
+
+    updateTime() {
+        this.elapsedTime = Date.now() - this.startTime;
+        let totalSeconds = Math.floor(this.elapsedTime / 1000);
+        let hours = Math.floor(totalSeconds / 3600);
+        let minutes = Math.floor((totalSeconds % 3600) / 60);
+        let seconds = totalSeconds % 60;
+        
+        this.render(hours, minutes, seconds);
+    }
+
+    render(h, m, s) {
+        const format = num => num.toString().padStart(2, '0');
+        this.displayElement.innerText = `${format(h)}:${format(m)}:${format(s)}`;
+    }
+}
+
 class Calculator {
     constructor(previousOperandElement, currentOperandElement) {
         this.previousOperandElement = previousOperandElement;
@@ -77,6 +124,12 @@ class Calculator {
     }
 }
 
+const timerDisplay = document.getElementById('timer-display');
+const stopwatch = new Timer(timerDisplay);
+
+document.getElementById('timer-start').addEventListener('click', () => stopwatch.start());
+document.getElementById('timer-pause').addEventListener('click', () => stopwatch.pause());
+document.getElementById('timer-reset').addEventListener('click', () => stopwatch.reset());
 
 const numberButtons = document.querySelectorAll('[data-number]');
 const operatorButtons = document.querySelectorAll('[data-operator]');
@@ -119,13 +172,9 @@ actionButtons.forEach(button => {
     });
 });
 
-
 document.getElementById('theme-toggle').addEventListener('click', () => {
-    const root = document.documentElement;
-    const currentTheme = root.getAttribute('data-theme');
-    root.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+    document.body.classList.toggle('dark');
 });
-
 
 document.addEventListener('keydown', e => {
     if (calculator.currentOperand === "Error") calculator.clear();
@@ -138,7 +187,6 @@ document.addEventListener('keydown', e => {
         e.preventDefault();
         calculator.compute();
     } else if (e.key === 'Escape' || e.key === 'Backspace') {
-        
         calculator.clear();
     }
     calculator.updateDisplay();
